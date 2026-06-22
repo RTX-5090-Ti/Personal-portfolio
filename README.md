@@ -1,16 +1,72 @@
-# React + Vite
+# Vuong Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React and Vite.
 
-Currently, two official plugins are available:
+This project showcases my profile, skills, featured projects, learning journey, and contact information in a clean single-page experience with a project detail view.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Responsive personal portfolio layout
+- Bilingual interface with Vietnamese and English toggle
+- Animated hero section and interactive UI elements
+- Featured projects section with detail pages
+- Contact section with GitHub and Zalo QR support
+- Smooth scroll-to-top button
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Motion
+- react-i18next
+- Lucide React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start development server
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview production build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+  assets/         Images and local media
+  data/           Project data
+  locales/        i18n translation resources
+  App.jsx         Main UI and routes
+  i18n.js         i18next configuration
+  main.jsx        App entry point
+```
+
+## Customization
+
+- Update project content in `src/data/projects.js`
+- Update translations in `src/locales/resources.js`
+- Update layout and sections in `src/App.jsx`
+
+## Notes
+
+This is a personal portfolio project created for learning, practice, and self-presentation.
