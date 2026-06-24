@@ -188,7 +188,7 @@ const resources = {
           "Mình đang tích lũy kinh nghiệm qua các dự án thực hành, đồng thời cải thiện từng bước nền tảng JavaScript, React và full-stack.",
         focusTitle: "Định hướng hiện tại",
         focusText:
-          "Hiện tại mình chưa có kinh nghiệm làm việc thực tế, nên mình dùng các dự án cá nhân để xây nền tảng vững hơn. Mục tiêu của mình là tiến bộ qua việc làm thật, hiểu rõ cách một ứng dụng web hiện đại vận hành và sẵn sàng hơn cho cơ hội junior developer.",
+          "Mình đang tập trung xây dựng các dự án thực tế để củng cố nền tảng JavaScript, React và MERN stack. Mục tiêu của mình là tạo ra sản phẩm có luồng sử dụng rõ ràng, giao diện sạch và code dễ mở rộng, đồng thời chuẩn bị tốt hơn cho môi trường làm việc thực tế.",
         cards: [
           {
             title: "Tư duy thực tế",
