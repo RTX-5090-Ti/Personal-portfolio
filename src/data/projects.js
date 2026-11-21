@@ -1,5 +1,67 @@
 export const projects = [
   {
+    slug: "movie-website",
+    title: "Movie Website",
+    subtitle: "Khám phá phim và quản lý danh sách yêu thích",
+    description:
+      "Website khám phá phim với tìm kiếm, bộ lọc, danh sách yêu thích và lịch sử xem. Có trang quản trị phim, người dùng và hỗ trợ tiếng Việt / tiếng Anh.",
+    status: "Hoàn thành",
+    liveDemo: "https://youtu.be/j1W1kolZDtY",
+    github: "https://github.com/RTX-5090-Ti/Project-WedMovie",
+    detailAvailable: true,
+    role: "Frontend Developer",
+    year: "2026",
+    overview: "Movie Website là dự án thực hành xây dựng trải nghiệm khám phá phim bằng React: từ tìm kiếm, xem thông tin phim đến lưu danh sách yêu thích và lịch sử xem. Trang quản trị hỗ trợ quản lý phim và người dùng. JSON Server cung cấp REST API và lưu dữ liệu; đăng nhập và phân quyền được mô phỏng ở phía frontend trong phạm vi dự án học tập.",
+    sectionDescriptions: {
+      features: "Các luồng chính dành cho người xem và quản trị viên.",
+      screenshots: "Ảnh chụp thực tế từ dự án. Bấm vào ảnh để xem kích thước lớn hơn.",
+      challenges: "Cách tổ chức dữ liệu và xử lý những luồng có nhiều trạng thái.",
+      learnings: "Những kỹ năng mình rèn luyện qua quá trình xây dựng website.",
+    },
+    features: [
+      "Khám phá phim qua banner nổi bật, bộ sưu tập và danh sách Top 10; tìm kiếm, lọc theo thể loại, quốc gia và loại phim.",
+      "Xem thông tin chi tiết của từng phim; truy cập danh sách phim qua URL có tham số để tải lại hoặc chia sẻ bộ lọc.",
+      "Đăng ký, đăng nhập, truy cập với tư cách khách và quản lý thông tin tài khoản; phân biệt giao diện dành cho khách, người dùng và admin.",
+      "Lưu phim yêu thích và lịch sử xem theo tài khoản thông qua API, giúp giữ dữ liệu khi đăng nhập lại.",
+      "Trang quản trị hỗ trợ thêm, sửa, xóa phim và quản lý người dùng; cập nhật danh sách sau khi API xác nhận thành công.",
+      "Chuyển đổi giao diện tiếng Việt / tiếng Anh bằng i18next; chia nhỏ các trang và tải theo route với React.lazy.",
+    ],
+    screenshots: [
+      { src: "/images/projects/movie/trang-chu.jpg", label: "Trang chủ", description: "Banner phim nổi bật và điều hướng khám phá nội dung." },
+      { src: "/images/projects/movie/card-mopvie.jpg", label: "Bộ sưu tập phim", description: "Các hàng phim đề xuất và danh sách Top 10." },
+      { src: "/images/projects/movie/rending-movie.jpg", label: "Danh sách phim", description: "Giao diện thẻ poster và tên phim song ngữ." },
+      { src: "/images/projects/movie/login-page.jpg", label: "Đăng nhập", description: "Giao diện đăng nhập, chọn ngôn ngữ và truy cập với tư cách khách." },
+    ],
+    challenges: [
+      {
+        title: "Đồng bộ danh sách phim giữa các trang",
+        content: "Trang chủ, danh sách và trang quản trị cùng sử dụng kho dữ liệu phim chung trong phiên ứng dụng. Các thao tác thêm, sửa, xóa chỉ cập nhật dữ liệu dùng chung sau khi API xác nhận, giúp các màn hình phản ánh cùng một trạng thái.",
+      },
+      {
+        title: "Lưu thư viện riêng cho từng tài khoản",
+        content: "Tách tài khoản, phim yêu thích và lịch sử xem thành các tập dữ liệu trên JSON Server. localStorage chỉ giữ phiên đăng nhập; dữ liệu cũ trong trình duyệt được chuyển lên API khi đăng nhập, tránh ghi đè những bản ghi đã có.",
+      },
+      {
+        title: "Giữ bộ lọc khi tải lại trang",
+        content: "Các danh sách sử dụng query string cho loại phim, thể loại và quốc gia. Trạng thái lọc được xác định từ URL để người dùng có thể mở trực tiếp, tải lại hoặc chia sẻ cùng một danh sách.",
+      },
+    ],
+    learnings: [
+      "Tách trang, component và lớp xử lý API để code React dễ bảo trì hơn.",
+      "Xây dựng luồng CRUD, xử lý lỗi và đồng bộ giao diện với dữ liệu trả về từ server.",
+      "Sử dụng React Router cho điều hướng, route guard và tham số tìm kiếm trên URL.",
+      "Tổ chức nội dung đa ngôn ngữ bằng i18next và tái sử dụng giao diện giữa các danh sách phim.",
+      "Viết kiểm thử cho các dịch vụ dữ liệu bằng Node.js test runner và JSON Server với dữ liệu trong bộ nhớ.",
+      "Phân biệt mô phỏng đăng nhập ở frontend với xác thực và phân quyền cần được thực thi tại backend khi triển khai thực tế.",
+    ],
+    techs: ["React", "Tailwind CSS", "React Router", "JSON Server", "i18next"],
+    metrics: [
+      { label: "Khám phá", value: "Tìm & lọc phim" },
+      { label: "Thư viện cá nhân", value: "Yêu thích" },
+      { label: "Đa ngôn ngữ", value: "VI / EN" },
+    ],
+  },
+  {
     slug: "travel-social-network",
     title: "Travel Social Network",
     subtitle: "A social platform for sharing travel journeys",

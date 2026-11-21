@@ -96,6 +96,7 @@ const resources = {
         title: "Projects that show how I build real features.",
         liveDemo: "Live Demo",
         caseStudy: "Case Study",
+        detailsComingSoon: "Project details coming soon",
       },
       journey: {
         eyebrow: "Learning journey",
@@ -258,6 +259,7 @@ const resources = {
         title: "Những dự án thể hiện cách mình xây dựng tính năng thực tế.",
         liveDemo: "Xem demo",
         caseStudy: "Chi tiết dự án",
+        detailsComingSoon: "Chi tiết dự án sẽ được cập nhật sau",
       },
       journey: {
         eyebrow: "Hành trình học tập",

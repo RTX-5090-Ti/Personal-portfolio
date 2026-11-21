@@ -6,6 +6,7 @@ import {
   Rocket,
   Target,
 } from "lucide-react";
+import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import BackgroundDecor from "../components/common/BackgroundDecor";
 import GitHubIcon from "../components/common/GitHubIcon";
@@ -20,7 +21,11 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
   const project = projects.find((item) => item.slug === projectSlug);
   const detailText = content.detail;
 
-  if (!project) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [projectSlug]);
+
+  if (!project || project.detailAvailable === false) {
     return <Navigate to="/" replace />;
   }
 
@@ -53,7 +58,7 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
               </h1>
 
               <p className="mt-5 text-lg leading-8 text-slate-300">
-                {project.description}
+                {project.overview || project.description}
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">
@@ -129,7 +134,7 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
           <SectionHeader
             eyebrow={detailText.featuresEyebrow}
             title={detailText.featuresTitle}
-            description={detailText.featuresDescription}
+            description={project.sectionDescriptions?.features || detailText.featuresDescription}
           />
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -148,13 +153,24 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
           <SectionHeader
             eyebrow={detailText.screenshotsEyebrow}
             title={detailText.screenshotsTitle}
-            description={detailText.screenshotsDescription}
+            description={project.sectionDescriptions?.screenshots || detailText.screenshotsDescription}
           />
 
           <div className="grid gap-5 md:grid-cols-2">
             {project.screenshots.map((screen, index) => (
-              <Reveal key={screen} delay={index * 0.05}>
+              <Reveal key={screen.src || screen} delay={index * 0.05}>
                 <div className="glass overflow-hidden rounded-[2rem] p-4">
+                  {screen.src ? (
+                    <figure>
+                      <a href={screen.src} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-[1.5rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+                        <img src={screen.src} alt={`${screen.label} — ${screen.description}`} loading="lazy" className="h-auto w-full transition duration-300 hover:scale-[1.02]" />
+                      </a>
+                      <figcaption className="px-2 pb-2 pt-5">
+                        <h3 className="text-lg font-bold text-white">{screen.label}</h3>
+                        <p className="mt-2 text-sm leading-6 text-slate-400">{screen.description}</p>
+                      </figcaption>
+                    </figure>
+                  ) : (
                   <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-4">
                     <div className="flex gap-2 mb-4">
                       <span className="w-3 h-3 bg-red-400 rounded-full" />
@@ -174,6 +190,7 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
                       </div>
                     </div>
                   </div>
+                  )}
                 </div>
               </Reveal>
             ))}
@@ -184,7 +201,7 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
           <SectionHeader
             eyebrow={detailText.challengesEyebrow}
             title={detailText.challengesTitle}
-            description={detailText.challengesDescription}
+            description={project.sectionDescriptions?.challenges || detailText.challengesDescription}
           />
 
           <div className="space-y-5">
@@ -215,7 +232,7 @@ export default function ProjectDetailPage({ language, setLanguage, content }) {
           <SectionHeader
             eyebrow={detailText.learningsEyebrow}
             title={detailText.learningsTitle}
-            description={detailText.learningsDescription}
+            description={project.sectionDescriptions?.learnings || detailText.learningsDescription}
           />
 
           <div className="grid gap-4 md:grid-cols-2">
